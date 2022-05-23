@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -23,8 +25,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "entityOne")
-public class EntityOne {
+@Table(name = "entityFour")
+public class EntityFour {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,9 +35,6 @@ public class EntityOne {
 	@Column(name = "campo")
 	private String field;
 	
-	@ManyToOne(targetEntity = EntityTwo.class)
-	private List<EntityTwo> entityTwo;
-
-	@OneToOne(targetEntity = EntityThree.class)
-	private EntityThree entityThree;
+	@ManyToMany(targetEntity = EntityFive.class)
+	private List<EntityFive> entityFive;
 }
