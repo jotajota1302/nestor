@@ -3,10 +3,10 @@ package com.ntt.es.springdata;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ntt.es.springdata.entity.EntityFive;
 import com.ntt.es.springdata.entity.EntityFour;
@@ -41,9 +41,22 @@ class SpringdataApplicationTests {
 		
 		System.out.println(result);
 	}
+	
+	@Test
+	@Transactional
+	void testFind() {
+		
+		EntityOne result = repositoryEntityOne.getById(1);
+		
+		List<EntityOne> valor = repositoryEntityOne.findByEntityThreeField("valor 3");
+		
+		System.out.println(result.getField());
+		System.out.println(valor);
+	}
 
 	@Test
 	void testOneToOne() {
+		
 		System.out.println("--testOneToOne--");
 		
 		EntityThree entityThree = repositoryEntityThree.save(EntityThree.builder().field("oneToOne_EntityThree").build());

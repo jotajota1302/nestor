@@ -33,6 +33,9 @@ public class EntityOne {
 	@Column(name = "campo")
 	private String field;
 	
+	@Column(name = "atributo")
+	private String attribute;
+	
 	@ManyToOne(targetEntity = EntityTwo.class)
 	private List<EntityTwo> entityTwo;
 

@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -34,6 +32,6 @@ public class EntityFive {
 	@Column(name = "campo")
 	private String field;
 	
-	@ManyToMany(mappedBy = "entityFive")
+	@ManyToMany(targetEntity = EntityFour.class)
 	private List<EntityFour> entityFour;
 }
