@@ -31,8 +31,5 @@ public class EntityTwo {
 	
 	@Column(name = "campo")
 	private String field;
-	
-	@ManyToMany(targetEntity = EntityOne.class)
-	private List<EntityOne> entityOne;
 
 }

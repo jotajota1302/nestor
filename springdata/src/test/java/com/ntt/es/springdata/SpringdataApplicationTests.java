@@ -41,20 +41,9 @@ class SpringdataApplicationTests {
 		
 		System.out.println(result);
 	}
-	
-	@Test
-	@Transactional
-	void testFind() {
-		
-		EntityOne result = repositoryEntityOne.getById(1);
-		
-		List<EntityOne> valor = repositoryEntityOne.findByEntityThreeField("valor 3");
-		
-		System.out.println(result.getField());
-		System.out.println(valor);
-	}
 
 	@Test
+	@Transactional
 	void testOneToOne() {
 		
 		System.out.println("--testOneToOne--");
@@ -98,6 +87,7 @@ class SpringdataApplicationTests {
 	}
 	
 	@Test
+	@Transactional
 	void testManyToMany() {	
 		System.out.println("--testManyToMany--");
 		
