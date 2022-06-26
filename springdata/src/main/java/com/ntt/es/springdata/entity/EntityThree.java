@@ -1,13 +1,10 @@
 package com.ntt.es.springdata.entity;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -33,6 +30,6 @@ public class EntityThree {
 	@Column(name = "campo")
 	private String field;
 	
-	@OneToOne(mappedBy = "entityThree", orphanRemoval = true)
+	@OneToOne(targetEntity = EntityOne.class)
 	private EntityOne entityOne;
 }

@@ -3,10 +3,10 @@ package com.ntt.es.springdata;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ntt.es.springdata.entity.EntityFive;
 import com.ntt.es.springdata.entity.EntityFour;
@@ -43,7 +43,9 @@ class SpringdataApplicationTests {
 	}
 
 	@Test
+	@Transactional
 	void testOneToOne() {
+		
 		System.out.println("--testOneToOne--");
 		
 		EntityThree entityThree = repositoryEntityThree.save(EntityThree.builder().field("oneToOne_EntityThree").build());
@@ -85,6 +87,7 @@ class SpringdataApplicationTests {
 	}
 	
 	@Test
+	@Transactional
 	void testManyToMany() {	
 		System.out.println("--testManyToMany--");
 		
