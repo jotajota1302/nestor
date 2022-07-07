@@ -68,10 +68,17 @@ public class QueryMethodTest {
 		repositoryEntityOne.save(EntityOne.builder().field("valor 1").attribute("atributo 1").entityThree(entityThree1).build());
 		repositoryEntityOne.save(EntityOne.builder().field("valor 2").attribute("atributo 2").entityThree(entityThree1).build());
 		repositoryEntityOne.save(EntityOne.builder().field("valor 3").attribute("atributo 3").entityThree(entityThree2).build());
-		/*
+		
 		List<Object[]> result = repositoryEntityOne.findByEntityThreeFieldCustom("valor 1");
 		
 		System.out.println(result.size());
-		*/
+		
+		for(Object[] row : result) {
+			EntityOne eOne = (EntityOne)row[0];
+			EntityThree eThree = (EntityThree)row[1];
+			
+			System.out.println("eOne id: " + eOne.getId());
+			System.out.println("eThree id: " + eThree.getId());
+		}
 	}
 }

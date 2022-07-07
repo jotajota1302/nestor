@@ -19,13 +19,13 @@ public interface EntityOneRepository extends JpaRepository<EntityOne,Integer> {
 	  @Query
 	  public List<EntityOne> findByEntityThreeField(String field);
 	  
-	  /*
+	  
 	  @Query(
 			  value = 
 			  "SELECT one, three "
-			  + "FROM EntityOne one INNER JOIN EntityThree three ON one.entityThree_id = three.id "
+			  + "FROM EntityOne one INNER JOIN EntityThree three ON one.entityThree.id = three.id "
 			  + "WHERE three.field = ?1"
 			  )
 	  public List<Object[]> findByEntityThreeFieldCustom(String field);
-	  */
+	  
 }
