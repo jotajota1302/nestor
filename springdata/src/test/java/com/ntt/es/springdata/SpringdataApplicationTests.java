@@ -6,6 +6,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ntt.es.springdata.entity.EntityFive;
@@ -37,7 +39,9 @@ class SpringdataApplicationTests {
 		
 		repositoryEntityOne.save(EntityOne.builder().field("valor 1").build());
 	
-		List<EntityOne> result = repositoryEntityOne.findAll();
+		Pageable pageable = PageRequest.of(2,3);  
+		
+		List<EntityOne> result = repositoryEntityOne.findAll(pageable).getContent();
 		
 		System.out.println(result);
 	}
